@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+const all = await getCollection("projects");
+const projects = all
+  .filter(p => !p.data.draft)
+  .sort((a, b) => (a.data.date < b.data.date ? 1 : -1));
+---
+
+<BaseLayout pageTitle="Projects">
+  <h1>Projects</h1>
+  <p class="muted">A selection of recent work.</p>
+
+  <div class="grid">
+    {projects.map((p) => (
+      <ProjectCard
+        href={`/projects/${p.slug}/`}
+        title={p.data.title}
+        summary={p.data.summary}
+        featuredImage={p.data.featuredImage}
+        meta={[p.data.location, p.data.year ? String(p.data.year) : ""].filter(Boolean).join(" • ")}
+      />
+    ))}
+  </div>
+
+  <style>
+    .grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</BaseLayout>

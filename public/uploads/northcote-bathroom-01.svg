@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Northcote Vanity Zone</title>
+  <desc id="desc">Placeholder gallery image for vanity and mirror cabinet.</desc>
+  <rect width="1400" height="900" fill="#224c58"/>
+  <rect x="150" y="150" width="1100" height="620" rx="18" fill="#8bb0b6"/>
+  <rect x="280" y="260" width="540" height="220" rx="10" fill="#d6ddd8"/>
+  <rect x="280" y="520" width="700" height="180" rx="8" fill="#f0e8dc"/>
+  <text x="120" y="830" fill="#f8f4ec" font-size="58" font-family="Georgia, serif">Vanity + Mirror Cabinet</text>
+</svg>

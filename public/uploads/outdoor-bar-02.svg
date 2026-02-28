@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Outdoor Bar Kitchen Detail</title>
+  <desc id="desc">Placeholder gallery image for kitchen detail.</desc>
+  <rect width="1400" height="900" fill="#6a4b2e"/>
+  <rect x="120" y="120" width="1160" height="660" rx="16" fill="#3c2817"/>
+  <rect x="220" y="220" width="280" height="460" fill="#7f5a37"/>
+  <rect x="540" y="220" width="640" height="460" fill="#a97848"/>
+  <text x="120" y="840" fill="#f5e6d0" font-size="64" font-family="Georgia, serif">Kitchen Detail</text>
+</svg>

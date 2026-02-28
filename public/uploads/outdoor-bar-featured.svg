@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Outdoor Bar Featured</title>
+  <desc id="desc">Illustrative placeholder image for the Outdoor Bar project.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f4b3f"/>
+      <stop offset="100%" stop-color="#d6a864"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g1)"/>
+  <rect x="120" y="140" width="1360" height="720" rx="24" fill="rgba(255,255,255,0.14)"/>
+  <text x="140" y="840" fill="#f7f2e8" font-size="86" font-family="Georgia, serif">Outdoor Bar</text>
+</svg>

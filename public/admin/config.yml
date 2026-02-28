@@ -1,0 +1,84 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/content/projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string", hint: "Used in the URL e.g. hawthorn-extension" }
+      - { label: "Published date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+
+      - { label: "Client", name: "client", widget: "string", required: false }
+      - { label: "Location", name: "location", widget: "string", required: false }
+      - { label: "Year", name: "year", widget: "number", required: false, value_type: "int", min: 1990, max: 2100 }
+      - { label: "Status", name: "status", widget: "select", required: false, options: ["Concept", "In Progress", "Completed"] }
+
+      - label: "Services"
+        name: "services"
+        widget: "list"
+        required: false
+        field: { label: "Service", name: "service", widget: "string" }
+
+      - { label: "Floor area (m²)", name: "floorAreaM2", widget: "number", required: false, value_type: "float", min: 0 }
+      - { label: "Budget (optional)", name: "budgetLabel", widget: "string", required: false, hint: "e.g. '$200k–$300k' or 'Confidential'" }
+
+      - { label: "Featured Image", name: "featuredImage", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Alt text", name: "alt", widget: "string", required: false }
+
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "SEO Title", name: "title", widget: "string", required: false }
+          - { label: "SEO Description", name: "description", widget: "text", required: false }
+          - { label: "Social Image", name: "image", widget: "image", required: false }
+
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    folder: "src/content/pages"
+    create: false
+    delete: false
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - label: "SEO"
+        name: "seo"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "SEO Title", name: "title", widget: "string", required: false }
+          - { label: "SEO Description", name: "description", widget: "text", required: false }
+          - { label: "Social Image", name: "image", widget: "image", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

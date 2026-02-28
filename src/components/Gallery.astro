@@ -1,0 +1,107 @@
+---
+const { items } = Astro.props as {
+  items: { image: string; alt?: string }[];
+};
+
+const id = `gallery_${Math.random().toString(36).slice(2)}`;
+---
+
+{items?.length ? (
+  <section>
+    <h2>Gallery</h2>
+    <div class="grid">
+      {items.map((it, idx) => (
+        <button class="thumb" type="button" data-idx={idx}>
+          <img src={it.image} alt={it.alt ?? ""} loading="lazy" />
+        </button>
+      ))}
+    </div>
+
+    <dialog class="lightbox" id={id}>
+      <button class="close" type="button" aria-label="Close">×</button>
+      <figure>
+        <img class="full" alt="" />
+        <figcaption class="cap muted"></figcaption>
+      </figure>
+    </dialog>
+
+    <script define:vars={{ id, items }}>
+      const dlg = document.getElementById(id);
+      const full = dlg.querySelector(".full");
+      const cap = dlg.querySelector(".cap");
+
+      const openAt = (idx) => {
+        const it = items[idx];
+        full.src = it.image;
+        full.alt = it.alt || "";
+        cap.textContent = it.alt || "";
+        dlg.showModal();
+      };
+
+      document.currentScript.closest("section").querySelectorAll("button.thumb").forEach((btn) => {
+        btn.addEventListener("click", () => openAt(Number(btn.dataset.idx)));
+      });
+
+      dlg.querySelector(".close").addEventListener("click", () => dlg.close());
+      dlg.addEventListener("click", (e) => {
+        const rect = dlg.getBoundingClientRect();
+        const inDialog =
+          e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top && e.clientY <= rect.bottom;
+        // click outside content closes
+        if (!inDialog) dlg.close();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && dlg.open) dlg.close();
+      });
+    </script>
+
+    <style>
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      @media (max-width: 900px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 520px) { .grid { grid-template-columns: 1fr; } }
+
+      .thumb {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+      }
+      .thumb img {
+        width: 100%;
+        display: block;
+        border-radius: 14px;
+        border: 1px solid #eee;
+      }
+
+      dialog.lightbox {
+        width: min(1100px, 92vw);
+        border: none;
+        border-radius: 18px;
+        padding: 0;
+      }
+      dialog.lightbox::backdrop { background: rgba(0,0,0,.6); }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        border: 1px solid #eee;
+        background: rgba(255,255,255,.9);
+        cursor: pointer;
+        font-size: 26px;
+        line-height: 38px;
+      }
+      figure { margin: 0; padding: 14px; }
+      .full { width: 100%; height: auto; display: block; border-radius: 14px; }
+      .cap { margin-top: 8px; }
+    </style>
+  </section>
+) : null}

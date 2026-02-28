@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Kew Kitchen Renovation Featured</title>
+  <desc id="desc">Illustrative placeholder image for the Kew kitchen project.</desc>
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2f3b56"/>
+      <stop offset="100%" stop-color="#c38d62"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#g2)"/>
+  <rect x="120" y="140" width="1360" height="720" rx="24" fill="rgba(255,255,255,0.12)"/>
+  <text x="140" y="840" fill="#f8efe3" font-size="80" font-family="Georgia, serif">Kew Kitchen Renovation</text>
+</svg>

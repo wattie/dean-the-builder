@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Outdoor Bar Rear Elevation</title>
+  <desc id="desc">Placeholder gallery image for rear elevation.</desc>
+  <rect width="1400" height="900" fill="#395547"/>
+  <circle cx="1090" cy="200" r="180" fill="#f2c978" opacity="0.5"/>
+  <rect x="120" y="160" width="1160" height="580" rx="18" fill="#20362f"/>
+  <text x="120" y="810" fill="#efe7d6" font-size="64" font-family="Georgia, serif">Rear Elevation</text>
+</svg>

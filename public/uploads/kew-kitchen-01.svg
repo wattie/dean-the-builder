@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kew Kitchen Island and Joinery</title>
+  <desc id="desc">Placeholder gallery image of island and joinery.</desc>
+  <rect width="1400" height="900" fill="#2a3349"/>
+  <rect x="120" y="150" width="1160" height="600" rx="20" fill="#5f6f8c"/>
+  <rect x="260" y="380" width="880" height="220" rx="18" fill="#ceb497"/>
+  <text x="120" y="820" fill="#f3ece2" font-size="58" font-family="Georgia, serif">Island + Joinery</text>
+</svg>

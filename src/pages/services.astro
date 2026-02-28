@@ -1,17 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getEntry } from "astro:content";
-
-const entry = await getEntry("pages", "home");
-if (!entry) throw new Error("Missing home page content.");
-
+const entry = await getEntry("pages", "services");
+if (!entry) throw new Error("Missing services page content.");
 const { Content } = await entry.render();
 ---
 
 <BaseLayout pageTitle={entry.data.title} seo={entry.data.seo}>
   <h1>{entry.data.title}</h1>
   <Content />
-  <p style="margin-top:18px;">
-    <a class="btn" href="/projects/">View Projects</a>
-  </p>
 </BaseLayout>

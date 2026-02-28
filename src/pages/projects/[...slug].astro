@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Gallery from "../../components/Gallery.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects
+    .filter(p => !p.data.draft)
+    .map(p => ({
+      params: { slug: p.slug },
+      props: { project: p },
+    }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+
+const metaBits = [
+  project.data.status,
+  project.data.location,
+  project.data.year ? String(project.data.year) : undefined,
+  project.data.floorAreaM2 ? `${project.data.floorAreaM2} m²` : undefined,
+  project.data.budgetLabel,
+].filter(Boolean);
+
+const services = project.data.services ?? [];
+---
+
+<BaseLayout
+  pageTitle={project.data.title}
+  seo={{
+    title: project.data.seo?.title ?? project.data.title,
+    description: project.data.seo?.description ?? project.data.summary,
+    image: project.data.seo?.image ?? project.data.featuredImage,
+  }}
+>
+  <a class="muted" href="/projects/">← Back to Projects</a>
+
+  <h1 style="margin-top:10px;">{project.data.title}</h1>
+
+  {metaBits.length ? <p class="muted">{metaBits.join(" • ")}</p> : null}
+
+  {services.length ? (
+    <p class="muted">
+      <strong>Services:</strong> {services.join(", ")}
+    </p>
+  ) : null}
+
+  {project.data.featuredImage && (
+    <img src={project.data.featuredImage} alt={`${project.data.title} featured image`} />
+  )}
+
+  <div style="margin-top: 16px;">
+    <Content />
+  </div>
+
+  {project.data.gallery?.length ? (
+    <div style="margin-top: 24px;">
+      <Gallery items={project.data.gallery} />
+    </div>
+  ) : null}
+</BaseLayout>

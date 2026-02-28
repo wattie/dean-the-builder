@@ -1,0 +1,26 @@
+---
+const { href, title, summary, featuredImage, meta } = Astro.props as {
+  href: string;
+  title: string;
+  summary?: string;
+  featuredImage?: string;
+  meta?: string;
+};
+---
+
+<article style="border:1px solid #eee; border-radius: 18px; overflow:hidden;">
+  <a href={href} style="text-decoration:none; display:block;">
+    {featuredImage ? (
+      <img src={featuredImage} alt={title} loading="lazy" />
+    ) : (
+      <div style="height:180px; background:#f3f3f3;"></div>
+    )}
+    <div style="padding: 14px 14px 16px;">
+      <div style="display:flex; justify-content:space-between; gap:10px; align-items:baseline;">
+        <h3 style="margin:0; font-size: 18px;">{title}</h3>
+        {meta && <span class="muted" style="font-size: 12px;">{meta}</span>}
+      </div>
+      {summary && <p class="muted" style="margin:8px 0 0;">{summary}</p>}
+    </div>
+  </a>
+</article>
