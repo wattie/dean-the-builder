@@ -1,12 +1,12 @@
 ---
-title: "Studio Name"
+title: "Dean the Builder"
 slug: "home"
 seo:
-  title: "Studio Name | Builder + Drafting + Design"
-  description: "Residential design, drafting, and building services across Melbourne."
+  title: "Dean the Builder | Builder + Drafting + Design"
+  description: "Residential design, drafting, and building services across Victoria."
 ---
 
-Welcome to **Studio Name**. We help clients move from concept to build with clear drawings and practical design.
+Welcome to **Dean's Building**. We help clients move from concept to build with clear drawings and practical design.
 
 - Drafting & documentation
 - Design development
