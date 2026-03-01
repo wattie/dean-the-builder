@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap");
 @import "tailwindcss";
 
+@theme {
+  --color-dbb-light: #ccfc65;
+  --color-dbb-mid: #9eeb23;
+  --color-dbb-dark: #517a05;
+  --color-dbb-black: #333319;
+  --color-dbb-bg: #e0e0d6;
+}
+
 :root {
   color-scheme: light;
 }
