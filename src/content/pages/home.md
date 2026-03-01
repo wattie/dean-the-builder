@@ -1,6 +1,8 @@
 ---
 title: "Dean the Builder"
 slug: "home"
+heroImage: "/uploads/kew-kitchen-featured.svg"
+heroImageAlt: "Kitchen renovation hero image"
 seo:
   title: "Dean the Builder | Builder + Drafting + Design"
   description: "Residential design, drafting, and building services across Victoria."

@@ -1,5 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Seo from "../components/Seo.astro";
+import "../styles/global.css";
+import logo from "../assets/ddb-logo.jpg";
 
 const {
   pageTitle,
@@ -49,7 +52,9 @@ const nav = [
     <header>
       <div class="wrap">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
-          <a href="/" style="text-decoration:none; font-weight:700;">Dean the Builder</a>
+          <a href="/" style="text-decoration:none; font-weight:700;">
+            <Image src={logo} alt="DDB logo" width={140} />
+          </a>
           <nav>
             {nav.map((n) => <a href={n.href}>{n.label}</a>)}
           </nav>

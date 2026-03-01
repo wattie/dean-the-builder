@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroImage from "../components/HeroImage.astro";
 import { getEntry } from "astro:content";
 const entry = await getEntry("pages", "about");
 if (!entry) throw new Error("Missing about page content.");
@@ -8,5 +9,11 @@ const { Content } = await entry.render();
 
 <BaseLayout pageTitle={entry.data.title} seo={entry.data.seo}>
   <h1>{entry.data.title}</h1>
+  {entry.data.heroImage && (
+    <HeroImage
+      heroImage={entry.data.heroImage}
+      heroImageAlt={entry.data.heroImageAlt ?? `${entry.data.title} hero image`}
+    />
+  )}
   <Content />
 </BaseLayout>
