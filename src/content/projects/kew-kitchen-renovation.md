@@ -1,28 +1,30 @@
 ---
-title: "Kew Kitchen Renovation"
+title: Kew Kitchen Renovation
 slug: kew-kitchen-renovation
-date: "2026-01-20"
-location: "Kew, VIC"
+date: 2026-01-20
+location: Kew, VIC
 year: 2025
-status: "Completed"
+status: Completed
 services:
-  - "Design"
-  - "Documentation"
-  - "Joinery Coordination"
+  - Design
+  - Documentation
+  - Joinery Coordination
 floorAreaM2: 28
-budgetLabel: "$95k - $120k"
-featuredImage: "/uploads/kew-kitchen-featured.svg"
-summary: "A compact kitchen renovation focused on storage efficiency, warm materials, and better circulation."
+budgetLabel: $95k - $120k
+featuredImage: /uploads/20190615_163845.jpg
+summary: A compact kitchen renovation focused on storage efficiency, warm
+  materials, and better circulation.
 draft: false
 gallery:
-  - image: "/uploads/kew-kitchen-01.svg"
-    alt: "Kitchen island and custom joinery"
-  - image: "/uploads/kew-kitchen-02.svg"
-    alt: "Pantry wall with integrated appliances"
+  - image: /uploads/kew-kitchen-01.svg
+    alt: Kitchen island and custom joinery
+  - image: /uploads/kew-kitchen-02.svg
+    alt: Pantry wall with integrated appliances
 seo:
-  title: "Kew Kitchen Renovation | Studio Name"
-  description: "A completed kitchen renovation in Kew with custom joinery and improved circulation."
-  image: "/uploads/kew-kitchen-featured.svg"
+  title: Kew Kitchen Renovation | Studio Name
+  description: A completed kitchen renovation in Kew with custom joinery and
+    improved circulation.
+  image: /uploads/kew-kitchen-featured.svg
 ---
 
 ### Overview
