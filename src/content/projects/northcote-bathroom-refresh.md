@@ -1,7 +1,7 @@
 ---
 title: "Northcote Bathroom Refresh"
 slug: northcote-bathroom-refresh
-date: "2025-12-12"
+date: 2025-12-12
 location: "Northcote, VIC"
 year: 2025
 status: "Completed"

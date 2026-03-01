@@ -1,7 +1,7 @@
 ---
 title: "Outdoor Bar"
 slug: outdoor-bar
-date: "2026-02-01"
+date: 2026-02-01
 location: "Hawthorn, VIC"
 year: 2025
 status: "Completed"

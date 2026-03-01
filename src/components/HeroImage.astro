@@ -8,5 +8,6 @@ const { heroImage, heroImageAlt } = Astro.props as {
 <img
   src={heroImage}
   alt={heroImageAlt ?? "Hero image"}
-  class="hero-image object-contain h-[300px] lg:h-[400px]"
+  class="hero-image object-cover h-75 lg:h-100"
+
 />

@@ -12,7 +12,7 @@ const projects = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
-    date: z.string(), // "YYYY-MM-DD"
+    date: z.date(), // "YYYY-MM-DD"
     client: z.string().optional(),
     location: z.string().optional(),
     year: z.number().int().optional(),

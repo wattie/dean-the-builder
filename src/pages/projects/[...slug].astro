@@ -42,8 +42,9 @@ const services = project.data.services ?? [];
   {metaBits.length ? <p class="muted">{metaBits.join(" • ")}</p> : null}
 
   {services.length ? (
-    <p class="muted">
-      <strong>Services:</strong> {services.join(", ")}
+    <p class="muted mt-2 mb-3">
+      <strong>Services:</strong>
+      {services.map((service => <span class="rounded-full bg-green-300 text-white p-2 m-1">{service}</span>))}
     </p>
   ) : null}
 
