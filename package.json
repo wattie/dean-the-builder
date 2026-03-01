@@ -12,6 +12,7 @@
     "astro": "^5.17.1"
   },
   "devDependencies": {
+    "@tailwindcss/oxide-darwin-arm64": "^4.2.1",
     "@tailwindcss/vite": "^4.2.1",
     "tailwindcss": "^4.2.1"
   }
