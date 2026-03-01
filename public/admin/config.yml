@@ -81,4 +81,6 @@ collections:
           - { label: "SEO Title", name: "title", widget: "string", required: false }
           - { label: "SEO Description", name: "description", widget: "text", required: false }
           - { label: "Social Image", name: "image", widget: "image", required: false }
+      - { label: "Hero Image", name: "heroImage", widget: "image", required: false }
+      - { label: "Hero Image Alt Text", name: "heroImageAlt", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
