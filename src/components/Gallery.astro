@@ -12,7 +12,7 @@ const id = `gallery_${Math.random().toString(36).slice(2)}`;
     <div class="grid">
       {items.map((it, idx) => (
         <button class="thumb" type="button" data-idx={idx}>
-          <img src={it.image} alt={it.alt ?? ""} loading="lazy" />
+          <img src={it.image} alt={it.alt ?? ""} loading="lazy" class="aspect-square object-cover" />
         </button>
       ))}
     </div>

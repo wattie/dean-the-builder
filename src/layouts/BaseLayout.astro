@@ -3,11 +3,13 @@ import { Image } from "astro:assets";
 import Seo from "../components/Seo.astro";
 import "../styles/global.css";
 import logo from "../assets/ddb-logo.jpg";
+import {
+  SITE_NAME,
+  SITE_PHONE,
+  SITE_PHONE_FORMATTED,
+} from "../helpers/constants";
 
-const {
-  pageTitle,
-  seo,
-} = Astro.props as {
+const { pageTitle, seo } = Astro.props as {
   pageTitle: string;
   seo?: { title?: string; description?: string; image?: string };
 };
@@ -31,19 +33,77 @@ const nav = [
       description={seo?.description}
       image={seo?.image}
     />
-    <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script
+      is:inline
+      src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
   <body>
-    <header>
+    <header class="border-b border-zinc-200">
       <div class="wrap">
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:16px;">
-          <a href="/" style="text-decoration:none; font-weight:700;">
-            <Image src={logo} alt="DDB logo" width={140} />
+        <div class="flex items-center justify-between gap-4">
+          <a href="/" class="font-bold no-underline">
+            <Image
+              src={logo}
+              alt={`${SITE_NAME} logo`}
+              title={SITE_NAME}
+              class="w-25 md:w-50"
+            />
           </a>
-          <nav>
-            {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+
+          <button
+            id="mobile-menu-button"
+            type="button"
+            class="inline-flex items-center justify-center rounded-md border border-zinc-300 px-3 py-2 text-sm font-medium md:hidden"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm1 4a1 1 0 100 2h12a1 1 0 100-2H4z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </button>
+
+          <nav
+            class="hidden items-center gap-2 md:flex"
+            aria-label="Main navigation"
+          >
+            {
+              nav.map((n) => (
+                <a
+                  href={n.href}
+                  class="rounded-md px-3 py-2 text-sm uppercase font-medium no-underline hover:bg-zinc-100"
+                >
+                  {n.label}
+                </a>
+              ))
+            }
           </nav>
         </div>
+
+        <nav
+          id="mobile-menu"
+          class="hidden flex-col gap-1 pb-2 pt-3 md:hidden"
+          aria-label="Mobile navigation"
+        >
+          {
+            nav.map((n) => (
+              <a
+                href={n.href}
+                class="rounded-md px-3 py-2 text-sm uppercase font-medium no-underline hover:bg-zinc-100"
+              >
+                {n.label}
+              </a>
+            ))
+          }
+        </nav>
       </div>
     </header>
 
@@ -51,10 +111,39 @@ const nav = [
       <slot />
     </main>
 
-    <footer>
-      <div class="wrap">
-        <div>© {new Date().getFullYear()} Dean the Builder</div>
+    <footer class="bg-dbb-black">
+      <div class="wrap text-dbb-bg">
+        <div class="flex">
+          <div class="flex-1">
+            <div><h4>{SITE_NAME}</h4></div>
+            <div class="mb-4">
+              <span class="font-bold">Ph:</span>
+              <a href={`tel:${SITE_PHONE}`}>{SITE_PHONE_FORMATTED}</a>
+            </div>
+          </div>
+          <div class="float-right"><span class="border-2 p-2 rounded-md hover:bg-dbb-bg hover:text-dbb-black"><a href="/contact">Contact Us</a></span></div>
+        </div>
+        <div class="text-sm">© {new Date().getFullYear()} {SITE_NAME}</div>
       </div>
     </footer>
+
+    <script is:inline>
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuButton && mobileMenu) {
+        menuButton.addEventListener("click", () => {
+          const isHidden = mobileMenu.classList.toggle("hidden");
+          menuButton.setAttribute("aria-expanded", String(!isHidden));
+        });
+
+        mobileMenu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+            menuButton.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+    </script>
   </body>
 </html>

@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Gallery from "../../components/Gallery.astro";
 import { getCollection } from "astro:content";
+import { undefined } from "astro:schema";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -16,14 +17,6 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const { Content } = await project.render();
 
-const metaBits = [
-  project.data.status,
-  project.data.location,
-  project.data.year ? String(project.data.year) : undefined,
-  project.data.floorAreaM2 ? `${project.data.floorAreaM2} m²` : undefined,
-  project.data.budgetLabel,
-].filter(Boolean);
-
 const services = project.data.services ?? [];
 ---
 
@@ -35,16 +28,23 @@ const services = project.data.services ?? [];
     image: project.data.seo?.image ?? project.data.featuredImage,
   }}
 >
-  <a class="muted" href="/projects/">← Back to Projects</a>
+  <div class="flex mb-3.5">
+    <div class="flex-1"><h1>{project.data.title}</h1></div>
+    <div class="flex-none flex items-center"><a class="muted" href="/projects/">← Back to Projects</a></div>
+  </div>
 
-  <h1 style="margin-top:10px;">{project.data.title}</h1>
-
-  {metaBits.length ? <p class="muted">{metaBits.join(" • ")}</p> : null}
+  <div class="grid gap-3.5 mt-4 grid-cols-1 md:grid-cols-2 mb-5">
+    <div><strong>Status: </strong>{project.data.status}</div>
+    <div><strong>Location: </strong>{project.data.location}</div>
+    {project.data.year ? (<div><strong>Year: </strong>{project.data.year}</div>):null}
+    {project.data.floorAreaM2 ? (<div><strong>Floor Area: </strong>{project.data.floorAreaM2}</div>):null}
+    {project.data.budgetLabel ? (<div><strong>Budget: </strong>{project.data.budgetLabel}</div>):null}
+  </div>
 
   {services.length ? (
     <p class="muted mt-2 mb-3">
       <strong>Services:</strong>
-      {services.map((service => <span class="rounded-full bg-dbb-dark text-white p-2 m-1">{service}</span>))}
+      {services.map((service => <span class="rounded-full bg-dbb-dark text-white py-1.5 px-5 m-1 text-xs">{service}</span>))}
     </p>
   ) : null}
 
@@ -57,7 +57,7 @@ const services = project.data.services ?? [];
   </div>
 
   {project.data.gallery?.length ? (
-    <div style="margin-top: 24px;">
+    <div class="mt-6">
       <Gallery items={project.data.gallery} />
     </div>
   ) : null}

@@ -12,3 +12,4 @@ seo:
 - Drafting & documentation
 - Planning support
 - Construction guidance
+![Quick test](/uploads/outdoor-bar-02.svg "Quick test title")

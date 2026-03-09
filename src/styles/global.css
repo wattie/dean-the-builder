@@ -33,24 +33,10 @@ a {
 header {
   border-bottom: 1px solid #eee;
 }
-nav {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  padding: 14px 0;
-}
-nav a {
-  text-decoration: none;
-  padding: 8px 10px;
-  border-radius: 10px;
-}
-nav a:hover {
-  background: #f3f3f3;
-}
 footer {
   border-top: 1px solid #eee;
   margin-top: 40px;
-  padding: 20px 0;
+  padding: 20px 0 0;
   color: #666;
 }
 .btn {
@@ -66,6 +52,22 @@ footer {
 }
 h1 {
   letter-spacing: -0.02em;
+  color: var(--color-dbb-dark);
+  font-weight: 700;
+  font-size: xx-large;
+}
+h2 {
+  font-size: large;
+  font-weight:500;
+  color: #666;
+  text-transform: uppercase ;
+  margin: 1rem 0;
+  letter-spacing: .1rem;
+}
+h4 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  letter-spacing: .2rem;
 }
 img:not(.hero-image) {
   max-width: 100%;

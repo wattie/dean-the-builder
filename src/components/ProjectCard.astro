@@ -11,7 +11,7 @@ const { href, title, summary, featuredImage, meta } = Astro.props as {
 <article style="border:1px solid #eee; border-radius: 18px; overflow:hidden;">
   <a href={href} style="text-decoration:none; display:block;">
     {featuredImage ? (
-      <img src={featuredImage} alt={title} loading="lazy" />
+      <img src={featuredImage} alt={title} loading="lazy" class="aspect-square object-cover" />
     ) : (
       <div style="height:180px; background:#f3f3f3;"></div>
     )}
