@@ -37,7 +37,7 @@ const nav = [
       is:inline
       src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
-  <body>
+  <body class="flex flex-col h-dvh">
     <header class="border-b border-zinc-200">
       <div class="wrap">
         <div class="flex items-center justify-between gap-4">
@@ -107,7 +107,7 @@ const nav = [
       </div>
     </header>
 
-    <main class="wrap">
+    <main class="wrap flex-1">
       <slot />
     </main>
 
